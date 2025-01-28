@@ -57,21 +57,21 @@ import { smeRouter } from "./sme-router";
 
 // // Create adapter.
 // See https://aka.ms/about-bot-adapter to learn more about to learn more about bot adapter.
-// const adapter = new BotFrameworkAdapter({
-//   appId: config.microsoftAppID,
-//   appPassword: config.microsoftAppPassword,
-// });
-
-console.log("CERT_THUMBPRINT: \n" + config.CERT_THUMBPRINT + "\n");
-console.log("CERT_PRIVATE_KEY_PEM: \n" + config.CERT_PRIVATE_KEY_PEM);
-
-const botFrameworkAuthentication = new ConfigurationBotFrameworkAuthentication({
-  MicrosoftAppId: config.microsoftAppID,
-  CertificateThumbprint: config.CERT_THUMBPRINT,
-  CertificatePrivateKey: config.CERT_PRIVATE_KEY_PEM,
+const adapter = new BotFrameworkAdapter({
+  appId: config.microsoftAppID,
+  appPassword: config.microsoftAppPassword,
 });
 
-const adapter = new CloudAdapter(botFrameworkAuthentication);
+// console.log("CERT_THUMBPRINT: \n" + config.CERT_THUMBPRINT + "\n");
+// console.log("CERT_PRIVATE_KEY_PEM: \n" + config.CERT_PRIVATE_KEY_PEM);
+
+// const botFrameworkAuthentication = new ConfigurationBotFrameworkAuthentication({
+//   MicrosoftAppId: config.microsoftAppID,
+//   CertificateThumbprint: config.CERT_THUMBPRINT,
+//   CertificatePrivateKey: config.CERT_PRIVATE_KEY_PEM,
+// });
+
+// const adapter = new CloudAdapter(botFrameworkAuthentication);
 
 // Catch-all for any unhandled errors in your bot.
 adapter.onTurnError = async (turnContext, error) => {

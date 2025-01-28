@@ -2,16 +2,16 @@ const endpoint = process.env["AZUE_AI_ENDPOINT"];
 const azureApiKey = process.env["AZURE_API_KEY"];
 const axios = require("axios");
 
-// axios.interceptors.response.use(
-//     (response) => {
-//         console.log('Full response:', response);
-//         return response;
-//     },
-//     (error) => {
-//         console.error('Error response:', error);
-//         return Promise.reject(error);
-//     }
-// );
+axios.interceptors.response.use(
+    (response) => {
+        console.log('Full response:', response);
+        return response;
+    },
+    (error) => {
+        console.error('Error response:', error);
+        return Promise.reject(error);
+    }
+);
 
 export const callLLM = async (content, tools) => {
     const body = {
